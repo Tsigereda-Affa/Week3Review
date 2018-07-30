@@ -1,10 +1,6 @@
-package com.nguyen.week3.project;
+package com.nguyen.project;
 
-import com.nguyen.project.Education;
-import com.nguyen.project.Experience;
-import com.nguyen.project.Resume;
-import com.nguyen.project.Skill;
-
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ResumeBuilder {
@@ -43,20 +39,20 @@ public class ResumeBuilder {
     public static void askPersonalInfo() {
         myResume = new Resume();
         print("Enter your first name: ");
-        input = sc.nextLine();
+        input = sc.next();
         myResume.setFirstName(input);
 
         print("Enter your last name: ");
-        input = sc.nextLine();
+        input = sc.next();
         myResume.setLastName(input);
 
         print("Enter your email address: ");
-        input = sc.nextLine();
+        input = sc.next();
         myResume.setEmail(input);
 
         print("Enter your phone number: ");
-        input = sc.nextLine();
-        myResume.setLastName(input);
+        input = sc.next();
+        myResume.setPhoneNo(input);
         input = "";//clear input
     }
 
@@ -65,27 +61,35 @@ public class ResumeBuilder {
         while (!(input.equalsIgnoreCase("n"))){
             anEducation = new Education();
             print("Enter your degree type: ");
-            input = sc.nextLine();
+            input = sc.next();
             anEducation.setDegreeType(input);
 
+            //anEducation.setDegreeType(sc.nextLine());
+
             print("Enter your degree name: ");
-            input = sc.nextLine();
+            input = sc.next();
             anEducation.setDegreeName(input);
 
             print("Enter your university name: ");
-            input = sc.nextLine();
+            input = sc.next();
             anEducation.setUniversityName(input);
 
             print("Enter your university's city: ");
-            input = sc.nextLine();
+            input = sc.next();
             anEducation.setCity(input);
 
             print("Enter your university's state: ");
-            input = sc.nextLine();
+            input = sc.next();
             anEducation.setState(input);
 
             print("Do you want to enter another (y/n)? ");
             input = sc.next();
+
+//            ArrayList<Education> currEducations = new ArrayList<>();
+//            currEducations.add(anEducation);
+//
+//            myResume.setEducations(currEducations);
+
             myResume.addEducation(anEducation);
         }
         input = "";
@@ -96,15 +100,15 @@ public class ResumeBuilder {
         while (!(input.equalsIgnoreCase("n"))){
             anExperience = new Experience();
             print("Enter the company name: ");
-            input = sc.nextLine();
+            input = sc.next();
             anExperience.setCompanyName(input);
 
             print("Enter the job title: ");
-            input = sc.nextLine();
+            input = sc.next();
             anExperience.setJobTitle(input);
 
             print("Enter the description: ");
-            input = sc.nextLine();
+            input = sc.next();
             anExperience.setDescription(input);
 
             print("Enter the duration at this company (months): ");
@@ -112,7 +116,7 @@ public class ResumeBuilder {
             anExperience.setWorkDuration(durationInput);
 
             print("Do you want to enter another (y/n)? ");
-            input = sc.nextLine();
+            input = sc.next();
             myResume.addExperience(anExperience);
         }
         input = "";
@@ -123,15 +127,15 @@ public class ResumeBuilder {
         while (!(input.equalsIgnoreCase("n"))){
             aSkill = new Skill();
             print("Enter the skill name: ");
-            input = sc.nextLine();
+            input = sc.next();
             aSkill.setSkillName(input);
 
             print("Enter the level of proficiency: ");
-            input = sc.nextLine();
+            input = sc.next();
             aSkill.setProficiency(input);
 
             print("Do you want to enter another (y/n)? ");
-            input = sc.nextLine();
+            input = sc.next();
             myResume.addSkill(aSkill);
         }
         input = "";
@@ -170,11 +174,13 @@ public class ResumeBuilder {
 
     public static void populateSkills() {
         for (Skill thisSkill : myResume.getSkills()) {
-            display+=thisSkill.getSkillName()+"\t\t"+thisSkill.getProficiency()+"\n\n";
+            display+=thisSkill.getSkillName()+"\t\t"+thisSkill.getProficiency()+"\n";
         }
     }
 
     public static String displayResume() {
+        System.out.println("*****************************************");
+        System.out.println("*****************************************");
         return display;
     }
 

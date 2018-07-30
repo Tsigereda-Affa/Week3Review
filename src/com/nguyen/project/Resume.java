@@ -13,10 +13,14 @@ public class Resume {
     private ArrayList<Education> educations;
     private ArrayList<Skill> skills;
 
+    private Experience myExperience;
+
     public Resume() {
         experiences = new ArrayList<>();
         educations = new ArrayList<>();
         skills = new ArrayList<>();
+
+        //myExperience = new Experience();
     }
 
     public Resume(String firstName, String lastName, String email, String phoneNo) {
